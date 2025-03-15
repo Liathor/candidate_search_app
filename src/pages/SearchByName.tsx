@@ -1,7 +1,7 @@
 import { type FormEvent, useState } from 'react';
 import { searchGithubUser } from '../api/API';
 import Candidate from '../interfaces/Candidate.interface';
-import CandidateCard from '../components/CandidateCard.tsx';
+import CandidateCard from '../components/temp.tsx';
 
 const SearchByName = () => {
   const [candidateSearched, setCandidateSearched] = useState<Candidate>({
