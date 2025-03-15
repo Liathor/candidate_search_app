@@ -17,10 +17,6 @@ const PotentialCandidates = () => {
     }
   }, []);
 
-  const rejectCandidate = (login: string | null | undefined) => {
-    login = '';
-  }
-
   return (
     <div>
       <h1>Potential Candidates</h1>
@@ -49,7 +45,6 @@ const PotentialCandidates = () => {
               <td>{candidate.bio}</td>
               <td><IoRemoveCircle
                     style={{ fontSize: '50px', cursor: 'pointer', color: 'rgb(255, 0, 0)'}}
-                    onClick={() => rejectCandidate(candidate.login)}
                 /></td>
             </tr>
           ))}
