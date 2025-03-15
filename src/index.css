@@ -11,6 +11,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --header-font: 'Bebas Neue', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --primary-font: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --primary-color: #f6f6f6;
+  --secondary-color: #1c1c1c;
+  --accent-color: #2c2c2c;
+  --hover-color: #d40419;
+  --bg-color-dark: #161616;
+  --secondary-text: #858585;
 }
 
 a {
@@ -117,4 +125,50 @@ tbody tr:nth-child(odd) {
 .table {
   width: 80vw;
   table-layout: fixed;
+}
+
+
+/* Candidate Card Styles */
+.candidateCard {
+  margin: 30px auto;
+  padding-bottom: 20px;
+  height: 200px;
+  width: 800px;
+  background-color: var(--secondary-color);
+  border: 3px solid var(--accent-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.candidateCard figure {
+  height: 100%;
+  width: 200px;
+  overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.candidateCard img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+    padding-bottom: 20px;
+}
+
+.candidateCard .details {
+  padding: 20px;
+  padding-bottom: 20px;
+  flex: 1;
+  flex-basis: 300px;
+  align-self: center;
+}
+
+.candidateCard .icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 20px;
+  flex-direction: column;
 }

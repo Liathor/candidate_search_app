@@ -30,6 +30,8 @@ const searchGithubUser = async (username: string) => {
         Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
       },
     });
+    console.log(`token = ${import.meta.env.VITE_GITHUB_TOKEN}`);
+    console.log(`https://api.github.com/users/${username}`);
     const data = await response.json();
     if (!response.ok) {
       throw new Error('invalid API response, check the network tab');
