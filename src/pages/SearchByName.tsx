@@ -17,7 +17,7 @@ const SearchByName = () => {
 
   const addToCandidates = () => {
     let parsedSavedCandidates: Candidate[] = [];
-    const storedSavedCandidates = localStorage.getItems('savedCandidates');
+    const storedSavedCandidates = localStorage.getItem('savedCandidates');
     if (typeof storedSavedCandidates === 'string') {
       parsedSavedCandidates = JSON.parse(storedSavedCandidates);
     }

@@ -4,7 +4,7 @@ import './index.css';
 
 import App from './App.tsx';
 import CandidateSearch from './pages/CandidateSearch.tsx';
-import Saved from './pages/Saved.tsx';
+import SearchByName from './pages/SearchByName.tsx';
 import PotentialCandidates from './pages/PotentialCandidates.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
 
@@ -23,8 +23,8 @@ const router = createBrowserRouter([
         element: <PotentialCandidates />,
       },
       {
-        path: '/SavedCandidates',
-        element: <Saved />,
+        path: '/SearchByName',
+        element: <SearchByName />,
       },
     ],
   },

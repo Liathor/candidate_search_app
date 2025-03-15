@@ -1,20 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Candidate from '../interfaces/Candidate.interface';
+import { IoRemoveCircle } from 'react-icons/io5';
 
 const PotentialCandidates = () => {
   const [potentialCandidates, setPotentialCandidates] = useState<Candidate[]>([]);
-  let parsedCandidates: Candidate[] = [];
 
-  const retrieveCandidates = () => {
+  useEffect(() => {
     const storedCandidates = localStorage.getItem('savedCandidates');
-    if (typeof storedCandidates === 'string') {
-      parsedCandidates = JSON.parse(storedCandidates);
+    if (storedCandidates) {
+      try {
+        const parsedPotentialCandidates = JSON.parse(storedCandidates);
+        setPotentialCandidates(parsedPotentialCandidates)
+      } catch (error) {
+        console.error ('Error parsing stored candidates.')
+      }
     }
-  }
+  }, []);
 
-  const data = [
-    [<img src={`${firstCandidate.avatar_url}`} alt={`{firstCandidate.login}`} />, firstCandidate.login, firstCandidate.location, firstCandidate.email, firstCandidate.company, firstCandidate.bio, 'Reject'],
-  ];
+  const rejectCandidate = (login: string | null | undefined) => {
+    login = '';
+  }
 
   return (
     <div>
@@ -32,11 +37,20 @@ const PotentialCandidates = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((row, rowIndex) => (
+          {potentialCandidates.map((candidate, rowIndex) => (
             <tr key={rowIndex}>
-              {row.map((cell, colIndex) => (
-                <td key={colIndex}>{cell}</td> // Map each row's cell content
-              ))}
+              <td>
+                <img src={candidate.avatar_url} alt={candidate.name}/>
+              </td>
+              <td>{candidate.name}</td>
+              <td>{candidate.location}</td>
+              <td>{candidate.email}</td>
+              <td>{candidate.company}</td>
+              <td>{candidate.bio}</td>
+              <td><IoRemoveCircle
+                    style={{ fontSize: '50px', cursor: 'pointer', color: 'rgb(255, 0, 0)'}}
+                    onClick={() => rejectCandidate(candidate.login)}
+                /></td>
             </tr>
           ))}
         </tbody>
