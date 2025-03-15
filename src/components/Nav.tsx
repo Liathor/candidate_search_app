@@ -5,7 +5,7 @@ const Nav = () => {
   // TODO: Add necessary code to display the navigation bar and link between the pages
   return (
     <div>
-      <nav>
+      <nav className="nav">
       <ul className='nav nav-tabs'>
         <li className='nav-item'>
             <Link

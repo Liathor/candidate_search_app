@@ -1,5 +1,5 @@
 import Candidate from '../interfaces/Candidate.interface.tsx';
-import CandidateCard from './CandidateCard.tsx';
+import CandidateCard from './CandidateCard';
 
 interface savedCandidates {
   savedCandidatesArray: Candidate[];

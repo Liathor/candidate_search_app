@@ -15,7 +15,7 @@
   --primary-font: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
   --primary-color: #f6f6f6;
   --secondary-color: #1c1c1c;
-  --accent-color: #2c2c2c;
+  --accent-color: #db8119;
   --hover-color: #d40419;
   --bg-color-dark: #161616;
   --secondary-text: #858585;
@@ -40,7 +40,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat no-repeat;
   background-position: center center;
-  margin: 0;
+  margin: 1;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -49,6 +49,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
 }
 
 button {
@@ -127,6 +128,43 @@ tbody tr:nth-child(odd) {
   table-layout: fixed;
 }
 
+/* Search Form Styles */
+.searchForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+}
+.searchForm input {
+  width: 300px; /* Set a fixed width */
+  padding: 10px; /* Add more padding inside the input */
+  font-size: 18px; /* Increase font size for readability */
+  border-radius: 5px; /* Optional: round the corners */
+  border: 2px solid #ccc; /* Optional: border style */
+}
+.searchForm button {
+  padding: 12px 20px; /* Add padding for better size */
+  font-size: 18px; /* Increase font size */
+  background-color: var(--primary-color); /* Set a background color (use your primary theme color) */
+  color: grey; /* Text color */
+  border: 2px solid var(--primary-color); /* Border matching background */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.searchForm button:hover {
+  background-color: var(--accent-color); /* Change background on hover */
+  border-color: var(--accent-color); /* Change border color on hover */
+  transform: scale(1.05); /* Slightly scale the button on hover for emphasis */
+}
+
+.searchForm button:focus {
+  outline: none; /* Removes default focus outline */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Optional: add focus ring for accessibility */
+}
 
 /* Candidate Card Styles */
 .candidateCard {
@@ -146,7 +184,7 @@ tbody tr:nth-child(odd) {
   height: 100%;
   width: 200px;
   overflow: hidden;
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .candidateCard img {

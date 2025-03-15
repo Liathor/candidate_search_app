@@ -35,7 +35,7 @@ const searchForCandidate = async(event: FormEvent, candidate_name: string) => {
 return (
   <div>
     <h1>Candidate Search</h1>
-    <form onSubmit={(event: FormEvent) => 
+    <form className="searchForm" onSubmit={(event: FormEvent) => 
       searchForCandidate(event, searchInput)
       }>
       <input
@@ -51,12 +51,17 @@ return (
         type="submit">
         Search
       </button>
-    </form>;
-    <CandidateCard 
-      candidateSearched={candidateSearched}
-      addToCandidates={addToCandidates}
-    />
-</div>
+    </form>
+    {candidateSearched.name === '' ? (
+      <div></div>
+    ) : (
+      <CandidateCard 
+        candidateSearched={candidateSearched}
+        addToCandidates={addToCandidates}
+      />
+    )
+    }
+  </div>
 )
 };
 
