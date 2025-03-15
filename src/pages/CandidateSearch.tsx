@@ -1,8 +1,9 @@
 import { type FormEvent, useState } from 'react';
-import { searchGithub, searchGithubUser } from '../api/API';
-import Candidate from '../interfaces/Candidate.interface.tsx';
+import { searchGithubUser } from '../api/API';
+import Candidate from '../interfaces/Candidate.interface';
+import CandidateCard from '../components/CandidateCard';
 
-const CandidateSearch = (props: string) => {
+const CandidateSearch = () => {
   const [candidateSearched, setCandidateSearched] = useState<Candidate>({
     name: '',
     location: '',
@@ -33,7 +34,7 @@ const searchForCandidate = async(event: FormEvent, candidate_name: string) => {
 
 return (
   <div>
-    <h1>CandidateSearch</h1>
+    <h1>Candidate Search</h1>
     <form onSubmit={(event: FormEvent) => 
       searchForCandidate(event, searchInput)
       }>
@@ -51,7 +52,10 @@ return (
         Search
       </button>
     </form>;
-    
+    <CandidateCard 
+      candidateSearched={candidateSearched}
+      addToCandidates={addToCandidates}
+    />
 </div>
 )
 };
