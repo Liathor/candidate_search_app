@@ -1,4 +1,4 @@
-import Candidate from '../interfaces/Candidate.interface.tsx';
+import Candidate from '../interfaces/Candidate.interface';
 import { IoAddCircle, IoRemoveCircle } from 'react-icons/io5';
 
 type CandidateCardProps = {

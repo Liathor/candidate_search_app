@@ -1,4 +1,4 @@
-import Candidate from '../interfaces/Candidate.interface.tsx';
+import Candidate from '../interfaces/Candidate.interface';
 import CandidateCard from './CandidateCard';
 
 interface savedCandidates {
