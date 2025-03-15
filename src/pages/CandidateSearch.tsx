@@ -16,13 +16,23 @@ const CandidateSearch = () => {
   })
 
   const grabCandidate = async() => { 
-    let pickedCandidate = [];
-    const candidateProfiles = await searchGithub();
+    let pickedCandidate = null;
+    let candidateWithName = false;
+    let attempts = 0;
 
-    if (candidateProfiles.length > 0) {
-      const randomIndex = Math.floor(Math.random() * candidateProfiles.length);
-      const pickedCandidateName = candidateProfiles[randomIndex].login;
-      pickedCandidate = await searchGithubUser(pickedCandidateName); 
+    while (!candidateWithName && attempts < 10) {
+      attempts++;
+      const candidateProfiles = await searchGithub();
+
+      if (candidateProfiles.length > 0) {
+        const randomIndex = Math.floor(Math.random() * candidateProfiles.length);
+        const pickedCandidateName = candidateProfiles[randomIndex].login;
+        const pickedCandidateData = await searchGithubUser(pickedCandidateName); 
+        if (pickedCandidateData.name && pickedCandidateData.name.trim() !== '') {
+          pickedCandidate = pickedCandidateData;
+          candidateWithName = true;
+        }  
+      }
     }
     setCandidateSearched(pickedCandidate);
   };
@@ -55,5 +65,3 @@ return (
 };
 
 export default CandidateSearch;
-
-
