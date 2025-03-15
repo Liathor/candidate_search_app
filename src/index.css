@@ -210,3 +210,60 @@ tbody tr:nth-child(odd) {
   padding: 20px;
   flex-direction: column;
 }
+
+/* Table Container */
+.table-container {
+  width: 100%;
+  margin: 20px auto;
+  overflow-x: auto; /* Allows horizontal scrolling on small screens */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd; /* Light gray border */
+}
+
+th {
+  background-color: #c95926; /* Light background for headers */
+  font-weight: bold;
+}
+
+td {
+  font-size: 14px; /* Adjust font size for readability */
+}
+
+
+/* Image Styling */
+td img {
+  max-width: 100px; /* Limit image width */
+  max-height: 100px; /* Limit image height */
+  object-fit: cover; /* Ensure images maintain aspect ratio */
+  border-radius: 8px;
+}
+
+/* Responsive Table (for small screens) */
+@media (max-width: 768px) {
+  table {
+    font-size: 12px;
+    overflow-x: auto;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  td img {
+    max-width: 80px;
+    max-height: 80px;
+  }
+}

@@ -1,14 +1,16 @@
 import Candidate from '../interfaces/Candidate.interface.tsx';
-import { IoAddCircle } from 'react-icons/io5';
+import { IoAddCircle, IoRemoveCircle } from 'react-icons/io5';
 
 type CandidateCardProps = {
     candidateSearched: Candidate;
     addToCandidates?: (() => void) | null;
+    rejectCandidate?: (() => void) | null;
   };
 
 const CandidateCard = ({
     candidateSearched,
     addToCandidates,
+    rejectCandidate,
 }: CandidateCardProps) => {
     return (
         <>
@@ -27,6 +29,10 @@ const CandidateCard = ({
                 <IoAddCircle
                     style={{ fontSize: '50px', cursor: 'pointer', color: 'rgb(255, 165, 0)'}}
                     onClick={() => addToCandidates?.()}
+                />
+                <IoRemoveCircle
+                    style={{ fontSize: '50px', cursor: 'pointer', color: 'rgb(255, 0, 0)'}}
+                    onClick={() => rejectCandidate?.()}
                 />
             </aside>
         </section>
