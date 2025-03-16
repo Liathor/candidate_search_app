@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { searchGithub, searchGithubUser } from '../api/API';
 import Candidate from '../interfaces/Candidate.interface';
 import CandidateCard from '../components/CandidateCard';
@@ -12,7 +12,8 @@ const CandidateSearch = () => {
     company: '',
     bio: '',
     avatar_url: '',
-    login: ''
+    login: '',
+    html_url: '',
   })
 
   const grabCandidate = async() => { 
@@ -37,6 +38,10 @@ const CandidateSearch = () => {
     setCandidateSearched(pickedCandidate);
   };
 
+  useEffect(() => {
+    grabCandidate(); // Fetch candidate on component mount
+  }, []);
+
   const addToCandidates = () => {
     let parsedSavedCandidates: Candidate[] = [];
     const storedSavedCandidates = localStorage.getItem('savedCandidates');
@@ -55,11 +60,16 @@ const CandidateSearch = () => {
 return (
   <div>
     <h1>Candidate Search</h1>
-    <CandidateCard 
-      candidateSearched={candidateSearched}
-      addToCandidates={addToCandidates}
-      rejectCandidate={rejectCandidate}
-    />
+    {candidateSearched?.login ? (
+      <CandidateCard 
+        candidateSearched={candidateSearched}
+        addToCandidates={addToCandidates}
+        rejectCandidate={rejectCandidate}
+      />
+    ) : (
+      <h2>Searching for candidate</h2>
+    )
+    }
   </div>
 )
 };

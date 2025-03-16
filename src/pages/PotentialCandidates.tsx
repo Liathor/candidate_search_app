@@ -26,6 +26,9 @@ const PotentialCandidates = () => {
   return (
     <div>
       <h1>Potential Candidates</h1>
+      {potentialCandidates.length === 0 ? (
+        <h3>No candidates left, look for some new candidates.</h3>
+      ) : (
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
           <tr>
@@ -42,9 +45,9 @@ const PotentialCandidates = () => {
           {potentialCandidates.map((candidate, rowIndex) => (
             <tr key={rowIndex}>
               <td>
-                <img src={candidate.avatar_url} alt={candidate.name}/>
+                <img src={candidate.avatar_url ?? undefined} alt={candidate.name ?? "unknown"}/>
               </td>
-              <td>{candidate.name}</td>
+              <td><a href={candidate.html_url}>{`${candidate.login} (${candidate.name})`}</a></td>
               <td>{candidate.location}</td>
               <td>{candidate.email}</td>
               <td>{candidate.company}</td>
@@ -57,6 +60,7 @@ const PotentialCandidates = () => {
           ))}
         </tbody>
       </table>
+      )}
     </div>
   );
 };

@@ -19,7 +19,7 @@ const CandidateCard = ({
                 <img src={`${candidateSearched.avatar_url}`} alt={`${candidateSearched.name}`}/>
             </figure>
             <article className='details'>
-                <h2>{candidateSearched.name}</h2>
+                <h2><a href={`${candidateSearched.html_url}`}>{`${candidateSearched.login} (${candidateSearched.name})`}</a></h2>
                 <p>Location: {candidateSearched.location}</p>
                 <p>Email: <a href={`mailto:${candidateSearched.email}`}>{candidateSearched.email}</a></p>
                 <p>Company: {candidateSearched.company}</p>

@@ -12,6 +12,7 @@ const SearchByName = () => {
     bio: '',
     avatar_url: '',
     login: '',
+    html_url: '',
   })
 
   const [searchInput, setSearchInput] = useState<string>('');
