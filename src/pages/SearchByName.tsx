@@ -11,6 +11,7 @@ const SearchByName = () => {
     company: '',
     bio: '',
     avatar_url: '',
+    login: '',
   })
 
   const [searchInput, setSearchInput] = useState<string>('');

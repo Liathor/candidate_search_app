@@ -5,6 +5,12 @@ import { IoRemoveCircle } from 'react-icons/io5';
 const PotentialCandidates = () => {
   const [potentialCandidates, setPotentialCandidates] = useState<Candidate[]>([]);
 
+  const rejectButton = (login: string) => {
+    const updatedCandidates = potentialCandidates.filter(candidate => candidate.login !== login);
+    setPotentialCandidates(updatedCandidates);
+    localStorage.setItem('savedCandidates', JSON.stringify(updatedCandidates));
+  }
+  
   useEffect(() => {
     const storedCandidates = localStorage.getItem('savedCandidates');
     if (storedCandidates) {
@@ -45,6 +51,7 @@ const PotentialCandidates = () => {
               <td>{candidate.bio}</td>
               <td><IoRemoveCircle
                     style={{ fontSize: '50px', cursor: 'pointer', color: 'rgb(255, 0, 0)'}}
+                    onClick={() => rejectButton(candidate.login)}
                 /></td>
             </tr>
           ))}

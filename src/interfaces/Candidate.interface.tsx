@@ -7,5 +7,5 @@
     readonly company: string | null;
     readonly bio: string | null;
     readonly avatar_url: string | undefined;
-    readonly login?: string | null;
+    readonly login: string;
  }
