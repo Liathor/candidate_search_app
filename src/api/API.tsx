@@ -32,14 +32,16 @@ const searchGithubUser = async (username: string) => {
     });
     //console.log(`token = ${import.meta.env.VITE_GITHUB_TOKEN}`);
     //console.log(`https://api.github.com/users/${username}`);
-    const data = await response.json();
+    
     if (!response.ok) {
-      throw new Error('invalid API response, check the network tab');
+       throw new Error('invalid API response, check the network tab');
     }
+    const data = await response.json();
     return data;
-  } catch (err) {
-    console.log('an error occurred', err);
-    return {};
+
+  } catch (error) {
+    console.error('an error occurred', error);
+    throw error;
   }
 };
 

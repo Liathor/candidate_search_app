@@ -26,13 +26,13 @@ const CandidateCard = ({
                 <p>Bio: {candidateSearched.bio}</p>
             </article>
             <aside className="icons">
-                <IoAddCircle
-                    style={{ fontSize: '50px', cursor: 'pointer', color: 'rgb(255, 165, 0)'}}
-                    onClick={() => addToCandidates?.()}
-                />
                 <IoRemoveCircle
                     style={{ fontSize: '50px', cursor: 'pointer', color: 'rgb(255, 0, 0)'}}
                     onClick={() => rejectCandidate?.()}
+                />
+                <IoAddCircle
+                    style={{ fontSize: '50px', cursor: 'pointer', color: 'rgb(0, 255, 123)'}}
+                    onClick={() => addToCandidates?.()}
                 />
             </aside>
         </section>
